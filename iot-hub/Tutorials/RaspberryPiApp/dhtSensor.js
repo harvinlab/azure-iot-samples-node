@@ -13,12 +13,12 @@ function Sensor(options) {
 }
 
 Sensor.prototype.init = function (callback) {
-  // nothing todo
-  callback(null, data);
+  DHT.initialize(this.options);
+  callback();
 }
 
 Sensor.prototype.read = function (callback) {
-  DHT.read(this.options)
+  DHT.read()
   .then((data) => {    
     callback(null, data);
   })

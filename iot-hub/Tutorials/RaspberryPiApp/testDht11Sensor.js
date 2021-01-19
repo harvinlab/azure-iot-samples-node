@@ -5,7 +5,9 @@ const DhtSensor = require('./dhtSensor.js');
 var app = {
     read: function() {
         this.sensor = new DhtSensor({type:11, pin:4});
-        this.sensor.init();
+        this.sensor.init(() => {
+            this.inited = true;
+        });
         
         this.sensor.read((err, data) => {
             if (err) {

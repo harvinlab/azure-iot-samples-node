@@ -25,7 +25,10 @@ var messageId = 0;
 var client, config, messageProcessor;
 
 function sendMessage() {
-  if (!isMessageSendOn) { return; }
+  if (!isMessageSendOn) {
+    setTimeout(sendMessage, config.interval); 
+    return; 
+  }
 
   messageId++;
 

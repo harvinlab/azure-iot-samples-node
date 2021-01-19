@@ -13,11 +13,8 @@ function Sensor(options) {
 }
   
   Sensor.prototype.init = function (callback) {
-    DHT.initialize(this.options)
-      .then(callback)
-      .catch((err) => {
-        console.error(err);
-      });
+    DHT.initialize(this.options);
+    callback();
   }
   
   Sensor.prototype.read = function (callback) {

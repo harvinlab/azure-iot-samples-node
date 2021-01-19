@@ -2,13 +2,13 @@
 
 const DhtSensor = require('./dhtSensor.js');
 
+this.sensor = new DhtSensor({type:11, pin:4});
+this.sensor.init(() => {
+    this.inited = true;
+});
+
 var app = {
-    read: function() {
-        this.sensor = new DhtSensor({type:11, pin:4});
-        this.sensor.init(() => {
-            this.inited = true;
-        });
-        
+    read: function() {                
         this.sensor.read((err, data) => {
             if (err) {
                 console.log('[Sensor] Read data failed due to:\n\t' + err.message);

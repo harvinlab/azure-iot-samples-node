@@ -13,18 +13,13 @@ function Sensor(options) {
 }
 
 Sensor.prototype.init = function (callback) {
-  //dht.initialize(this.options);
+  //dht.initialize(this.options.type, this.options.pin);
   callback();
 }
 
 Sensor.prototype.read = function (callback) {
   var data = dht.read(this.options.type, this.options.pin);
   callback(null, data);
-  
-//  .then((data) => {    
-//    callback(null, data);
-//  })
-//  .catch(callback);
 }
 
 module.exports = Sensor;

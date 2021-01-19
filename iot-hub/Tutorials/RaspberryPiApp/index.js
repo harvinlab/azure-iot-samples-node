@@ -41,7 +41,7 @@ function sendMessage() {
       if (err) {
         console.error('[Device] Failed to send message to Azure IoT Hub due to:\n\t' + err.message);
       } else {
-        blinkLED();
+        blinkLED(config.LED1PinGPIO, 500);
         console.log('[Device] Message sent to Azure IoT Hub');
       }
 
@@ -75,7 +75,7 @@ function onStop(request, response) {
 }
 
 function receiveMessageCallback(msg) {
-  blinkLED();
+  blinkLED(config.LED2PinGPIO, 2000);
 
   var message = msg.getData().toString('utf-8');
 
@@ -83,14 +83,15 @@ function receiveMessageCallback(msg) {
     console.log('Received message:\n\t' + message);
   });
 }
-function blinkLED() {
+
+function blinkLED(pin, blinkTime) {
   // Light up LED for 500 ms
-    const led = new gpio(config.LEDPinGPIO, 'out');
+    const led = new gpio(pin, 'out');
     led.writeSync(1);
     setTimeout(function () {
         led.writeSync(0);
-      }, 500);
-    }
+      }, blinkTime);
+}
 
 function initClient(connectionStringParam, credentialPath) {
   var connectionString = ConnectionString.parse(connectionStringParam);

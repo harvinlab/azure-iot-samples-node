@@ -16,26 +16,6 @@ this.sensor.read((err, data) => {
 });
 
 /*
-var app = {
-    read: function() {                
-        this.sensor.read((err, data) => {
-            if (err) {
-                console.log('[Sensor] Read data failed due to:\n\t' + err.message);
-            } else {
-                console.log(`temp: ${data.temperature}°C, humidity: ${data.humidity}%`);
-            }
-        });
-
-        setTimeout(function() {
-            app.read();
-        }, 2000);
-    }
-};
-
-app.read();
-*/
-
-/*
 var sensor = require("node-dht-sensor");
  
 sensor.read(11, 4, function(err, temperature, humidity) {

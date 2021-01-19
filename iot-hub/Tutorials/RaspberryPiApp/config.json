@@ -12,5 +12,9 @@
     "pin": 9,
     "i2cBusNo": 1,
     "i2cAddress": 119
+  },
+  "dhtSensorOption": {
+    "type": 11,
+    "pin": 4
   }
 }

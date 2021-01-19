@@ -1,6 +1,6 @@
 'use strict';
 
-var DHT = require('node-dht-sensor');
+const DHT = require('node-dht-sensor');
 
 // The DHT constructor options are optional.
 const DEFAULT_OPTIONS = {
@@ -10,15 +10,16 @@ const DEFAULT_OPTIONS = {
 
 function Sensor(options) {
   this.options = Object.assign(DEFAULT_OPTIONS, options || {});
+  this.dht = new DHT();
 }
 
 Sensor.prototype.init = function (callback) {
-  DHT.initialize(this.options);
+  this.dht.initialize(this.options);
   callback();
 }
 
 Sensor.prototype.read = function (callback) {
-  DHT.read()
+  this.dht.read()
   .then((data) => {    
     callback(null, data);
   })

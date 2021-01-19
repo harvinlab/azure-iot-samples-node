@@ -1,5 +1,5 @@
 {
-  "simulatedData": false,
+  "simulatedData": true,
   "interval": 2000,
   "deviceId": "Raspberry Pi Node",
   "LEDPinGPIO": 24,

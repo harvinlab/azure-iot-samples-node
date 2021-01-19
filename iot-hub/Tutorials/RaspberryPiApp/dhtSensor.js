@@ -18,7 +18,7 @@ Sensor.prototype.init = function (callback) {
 }
 
 Sensor.prototype.read = function (callback) {
-  var data = dht.read(11, 4);
+  var data = dht.read(this.options.type, this.options.pin);
   callback(null, data);
   
 //  .then((data) => {    

@@ -18,11 +18,18 @@ Sensor.prototype.init = function (callback) {
 }
 
 Sensor.prototype.read = function (callback) {
-  dht.read(11, 4)
-  .then((data) => {    
-    callback(null, data);
-  })
-  .catch(callback);
+  dht.read(11, 4).then(
+    function(data) {
+      callback(null, data);
+    },
+    function(err) {
+      callback(err, null);
+    }
+  );
+//  .then((data) => {    
+//    callback(null, data);
+//  })
+//  .catch(callback);
 }
 
 module.exports = Sensor;

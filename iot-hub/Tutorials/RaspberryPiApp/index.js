@@ -51,7 +51,8 @@ function sendMessage() {
 }
 
 function onStart(request, response) {
-  console.log('[Device] Trying to invoke method start(' + request.payload || '' + ')');
+  //console.log('[Device] Trying to invoke method start(' + request.payload || '' + ')');
+  console.log('[Device] Trying to invoke method start');
 
   isMessageSendOn = true;
 
@@ -63,7 +64,8 @@ function onStart(request, response) {
 }
 
 function onStop(request, response) {
-  console.log('[Device] Trying to invoke method stop(' + request.payload || '' + ')');
+  //console.log('[Device] Trying to invoke method stop(' + request.payload || '' + ')');
+  console.log('[Device] Trying to invoke method stop');
 
   isMessageSendOn = false;
 

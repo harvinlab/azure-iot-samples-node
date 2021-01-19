@@ -9,11 +9,11 @@ const DEFAULT_OPTIONS = {
 }
 
 function Sensor(options) {
-  options = Object.assign(DEFAULT_OPTIONS, options || {});
+  this.options = Object.assign(DEFAULT_OPTIONS, options || {});
 }
   
   Sensor.prototype.init = function (callback) {
-    DHT.initialize(options)
+    DHT.initialize(this.options)
       .then(callback)
       .catch((err) => {
         console.error(err);

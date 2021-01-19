@@ -14,7 +14,7 @@ function Sensor(options) {
 
 Sensor.prototype.init = function (callback) {
   // nothing todo
-  callback();
+  callback(null, data);
 }
 
 Sensor.prototype.read = function (callback) {

@@ -11,18 +11,18 @@ const DEFAULT_OPTIONS = {
 function Sensor(options) {
   this.options = Object.assign(DEFAULT_OPTIONS, options || {});
 }
-  
-  Sensor.prototype.init = function (callback) {
-    DHT.initialize(this.options);
-    callback();
-  }
-  
-  Sensor.prototype.read = function (callback) {
-    DHT.read()
-    .then((data) => {    
-      callback(null, data);
-    })
-    .catch(callback);
-  }
+
+Sensor.prototype.init = function (callback) {
+  // nothing todo
+  callback();
+}
+
+Sensor.prototype.read = function (callback) {
+  DHT.read(this.options)
+  .then((data) => {    
+    callback(null, data);
+  })
+  .catch(callback);
+}
 
 module.exports = Sensor;
